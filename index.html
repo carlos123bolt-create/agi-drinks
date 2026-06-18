@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGI Drinks | Adega Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="public/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1 class="logo">AGI <span>DRINKS</span></h1>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Busque seu rótulo favorito...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-basket"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Experiências Exclusivas em Cada Gole</h2>
+            <p>A melhor seleção de vinhos, destilados e cervejas artesanais.</p>
+        </div>
+    </section>
+
+    <nav class="categories">
+        <button class="cat-btn active" onclick="filterCategory('todos')">Todos</button>
+        <button class="cat-btn" onclick="filterCategory('vinhos')">Vinhos</button>
+        <button class="cat-btn" onclick="filterCategory('espumantes')">Espumantes</button>
+        <button class="cat-btn" onclick="filterCategory('destilados')">Destilados</button>
+        <button class="cat-btn" onclick="filterCategory('cervejas')">Cervejas</button>
+    </nav>
+
+    <main class="container">
+        <div class="products-grid" id="products-container">
+            </div>
+    </main>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items">
+            </div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: <span id="cart-total-val">R$ 0,00</span></div>
+            <button class="checkout-btn" onclick="checkoutWhatsApp()">Finalizar no WhatsApp <i class="fab fa-whatsapp"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('public/service-worker.js');
+        }
+    </script>
+</body>
+</html>

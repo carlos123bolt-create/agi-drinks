@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nome": "Vinho Tinto Cabernet Sauvignon Reserva",
+    "preco": 120.00,
+    "categoria": "vinhos",
+    "imagem": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500&auto=format&fit=crop&q=60"
+  },
+  {
+    "id": 2,
+    "nome": "Champagne Dom Pérignon Vintage",
+    "preco": 1890.00,
+    "categoria": "espumantes",
+    "imagem": "https://images.unsplash.com/photo-1594498653385-d52725a30827?w=500&auto=format&fit=crop&q=60"
+  },
+  {
+    "id": 3,
+    "nome": "Whisky Macallan 12 Anos Sherry Oak",
+    "preco": 750.00,
+    "categoria": "destilados",
+    "imagem": "https://images.unsplash.com/photo-1527281400828-ac3fe76b0021?w=500&auto=format&fit=crop&q=60"
+  },
+  {
+    "id": 4,
+    "nome": "Cerveja Artesanal IPA Premium",
+    "preco": 24.90,
+    "categoria": "cervejas",
+    "imagem": "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=500&auto=format&fit=crop&q=60"
+  }
+]

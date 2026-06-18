@@ -1,0 +1,341 @@
+:root {
+    --black-bg: #0b0b0b;
+    --black-card: #141414;
+    --gold: #d4af37;
+    --gold-hover: #f3e5ab;
+    --text-color: #ffffff;
+    --muted-text: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--black-bg);
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+    background-color: var(--black-card);
+    border-bottom: 2px solid var(--gold);
+    sticky: top;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.search-bar {
+    display: flex;
+    flex: 0 1 500px;
+    margin: 0 1rem;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gold);
+    background-color: #222;
+    color: #fff;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-bar button {
+    background-color: var(--gold);
+    border: none;
+    padding: 0 1rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    color: #000;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gold);
+}
+
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1200') center/cover;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+.banner h2 {
+    color: var(--gold);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Categorias */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 1.5rem;
+    overflow-x: auto;
+}
+
+.cat-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.cat-btn.active, .cat-btn:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+/* Grid de Produtos */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem 1rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: var(--black-card);
+    border: 1px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    height: 45px;
+    overflow: hidden;
+}
+
+.product-price {
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.add-to-cart {
+    background-color: var(--gold);
+    color: #000;
+    border: none;
+    width: 100%;
+    padding: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: var(--gold-hover);
+}
+
+/* Carrinho Lateral */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    height: 100%;
+    background-color: var(--black-card);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    z-index: 1000;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid var(--gold);
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-cart {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--gold);
+}
+
+.cart-items {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.5rem;
+}
+
+.cart-item-info h4 {
+    font-size: 0.9rem;
+    max-width: 180px;
+}
+
+.cart-item-info span {
+    color: var(--gold);
+}
+
+.remove-btn {
+    background: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+
+.cart-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #222;
+}
+
+.cart-total {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-total span {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Painel Admin CSS */
+.admin-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: var(--black-card);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--gold);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--gold);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.7rem;
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Responsividade */
+@media(max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .search-bar {
+        width: 100%;
+        margin: 0;
+    }
+    .cart-sidebar {
+        width: 100%;
+    }
+}
