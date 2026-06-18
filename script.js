@@ -169,7 +169,7 @@ function atualizarValoresModal() {
     const campoTotalGeral = document.getElementById('resumo-total-geral');
     if (campoTotalGeral) campoTotalGeral.innerText = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`;
     const avisoMinimo = document.getElementById('aviso-minimo');
-    const btnFinalizar = document.getElementById('btn-finalizar');
+    const btnFinalizar = document.getElementById('btn-enviar-whats');
     if (avisoMinimo && btnFinalizar) {
         if (tipoEntrega === 'entrega' && subtotal < PEDIDO_MINIMO_ENTREGA) { avisoMinimo.classList.remove('hidden'); btnFinalizar.disabled = true; btnFinalizar.style.opacity = "0.5"; }
         else { avisoMinimo.classList.add('hidden'); btnFinalizar.disabled = false; btnFinalizar.style.opacity = "1"; }
