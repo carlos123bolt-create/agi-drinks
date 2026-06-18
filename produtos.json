@@ -327,7 +327,7 @@
     "preco": 15.00,
     "categoria": "Drinks Especiais",
     "descricao": "Opções: AGI Tropical, AGI Power, AGI Green ou AGI Citrus. (Escolha o sabor no carrinho)",
-    "video": "videos/preparo_drinks.mp4",
+    "video": "preparo.mp4",
     "imagem": "images/drinks.jpg"
   },
   {
@@ -336,7 +336,7 @@
     "preco": 25.00,
     "categoria": "Drinks Especiais",
     "descricao": "Leve 2 e economize! Escolha os sabores (AGI Tropical, Power, Green ou Citrus) nas observações.",
-    "video": "videos/preparo_drinks.mp4",
+    "video": "preparo.mp4",
     "imagem": "images/drinks.jpg"
   }
 ]
