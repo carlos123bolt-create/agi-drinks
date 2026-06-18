@@ -1,30 +1,342 @@
 [
   {
     "id": 1,
-    "nome": "Vinho Tinto Cabernet Sauvignon Reserva",
-    "preco": 120.00,
-    "categoria": "vinhos",
-    "imagem": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500&auto=format&fit=crop&q=60"
+    "nome": "Combo Beefeater + 4 Red Bull",
+    "preco": 190.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Gin Beefeater acompanhada de 4 energéticos Red Bull."
   },
   {
     "id": 2,
-    "nome": "Champagne Dom Pérignon Vintage",
-    "preco": 1890.00,
-    "categoria": "espumantes",
-    "imagem": "https://images.unsplash.com/photo-1594498653385-d52725a30827?w=500&auto=format&fit=crop&q=60"
+    "nome": "Combo Eternity + Bally 2L",
+    "preco": 45.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Eternity acompanhada de energético Bally de 2 Litros."
   },
   {
     "id": 3,
-    "nome": "Whisky Macallan 12 Anos Sherry Oak",
-    "preco": 750.00,
-    "categoria": "destilados",
-    "imagem": "https://images.unsplash.com/photo-1527281400828-ac3fe76b0021?w=500&auto=format&fit=crop&q=60"
+    "nome": "Combo Ballantines + 4 Red Bull",
+    "preco": 170.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Whisky Ballantines acompanhada de 4 energéticos Red Bull."
   },
   {
     "id": 4,
-    "nome": "Cerveja Artesanal IPA Premium",
-    "preco": 24.90,
-    "categoria": "cervejas",
-    "imagem": "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=500&auto=format&fit=crop&q=60"
+    "nome": "Combo Cavalo Branco + 4 Red Bull",
+    "preco": 150.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Whisky Cavalo Branco acompanhada de 4 energéticos Red Bull."
+  },
+  {
+    "id": 5,
+    "nome": "Combo Jack Daniels Tradicional + 4 Red Bull",
+    "preco": 270.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Whisky Jack Daniels Tradicional acompanhada de 4 energéticos Red Bull."
+  },
+  {
+    "id": 6,
+    "nome": "Combo Jack Daniels Maçã Verde + 4 Red Bull",
+    "preco": 290.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Whisky Jack Daniels Apple acompanhada de 4 energéticos Red Bull."
+  },
+  {
+    "id": 7,
+    "nome": "Combo Absolut + 4 Red Bull",
+    "preco": 180.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Vodka Absolut acompanhada de 4 energéticos Red Bull."
+  },
+  {
+    "id": 8,
+    "nome": "Combo Red Label + 4 Red Bull",
+    "preco": 160.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Whisky Red Label acompanhada de 4 energéticos Red Bull."
+  },
+  {
+    "id": 9,
+    "nome": "Combo Black Label + 4 Red Bull",
+    "preco": 300.00,
+    "categoria": "Combos",
+    "descricao": "Garrafa de Whisky Black Label acompanhada de 4 energéticos Red Bull."
+  },
+  {
+    "id": 10,
+    "nome": "Passport c/ Energético Bally",
+    "preco": 20.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 11,
+    "nome": "Passport c/ Red Bull",
+    "preco": 30.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 12,
+    "nome": "Red Label c/ Energético Bally",
+    "preco": 30.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 13,
+    "nome": "Red Label c/ Red Bull",
+    "preco": 35.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 14,
+    "nome": "Jack Daniel's c/ Energético Bally",
+    "preco": 30.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 15,
+    "nome": "Jack Daniel's c/ Red Bull",
+    "preco": 35.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 16,
+    "nome": "Jack Daniel's de Maçã Verde c/ Energético Bally",
+    "preco": 35.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 17,
+    "nome": "Jack Daniel's de Maçã Verde c/ Red Bull",
+    "preco": 40.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 18,
+    "nome": "White Horse c/ Energético Bally",
+    "preco": 20.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 19,
+    "nome": "White Horse c/ Red Bull",
+    "preco": 30.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 20,
+    "nome": "Smirnoff c/ Energético Bally",
+    "preco": 20.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 21,
+    "nome": "Smirnoff c/ Red Bull",
+    "preco": 35.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 22,
+    "nome": "Buchanan's c/ Energético Bally",
+    "preco": 20.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 23,
+    "nome": "Buchanan's c/ Red Bull",
+    "preco": 35.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 24,
+    "nome": "Black Label c/ Energético Bally",
+    "preco": 35.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 25,
+    "nome": "Black Label c/ Red Bull",
+    "preco": 45.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 26,
+    "nome": "Jim Beam c/ Energético Bally",
+    "preco": 20.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 27,
+    "nome": "Jim Beam c/ Red Bull",
+    "preco": 30.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 28,
+    "nome": "Ballantines c/ Energético Bally",
+    "preco": 28.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 29,
+    "nome": "Ballantines c/ Red Bull",
+    "preco": 35.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 30,
+    "nome": "Malibu c/ Energético Vibe",
+    "preco": 20.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 31,
+    "nome": "Malibu c/ Red Bull",
+    "preco": 30.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 32,
+    "nome": "Licor Doce de Leite (Bem Casado)",
+    "preco": 20.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 33,
+    "nome": "Licor Doce de Leite Annubis Premium",
+    "preco": 25.00,
+    "categoria": "Doses"
+  },
+  {
+    "id": 34,
+    "nome": "Itaipava Lata",
+    "preco": 4.00,
+    "categoria": "Cervejas"
+  },
+  {
+    "id": 35,
+    "nome": "Brahma Lata",
+    "preco": 5.00,
+    "categoria": "Cervejas"
+  },
+  {
+    "id": 36,
+    "nome": "Skol Lata",
+    "preco": 5.00,
+    "categoria": "Cervejas"
+  },
+  {
+    "id": 37,
+    "nome": "Original Lata",
+    "preco": 5.00,
+    "categoria": "Cervejas"
+  },
+  {
+    "id": 38,
+    "nome": "Heineken Lata",
+    "preco": 8.00,
+    "categoria": "Cervejas"
+  },
+  {
+    "id": 39,
+    "nome": "Heineken Long Neck",
+    "preco": 12.00,
+    "categoria": "Cervejas"
+  },
+  {
+    "id": 40,
+    "nome": "Heineken Long Neck Zero",
+    "preco": 12.00,
+    "categoria": "Cervejas"
+  },
+  {
+    "id": 41,
+    "nome": "Corona",
+    "preco": 12.00,
+    "categoria": "Cervejas"
+  },
+  {
+    "id": 42,
+    "nome": "Refrigerante Lata (Coca-Cola, Pepsi, Guaraná)",
+    "preco": 6.00,
+    "categoria": "Refrigerantes",
+    "descricao": "Escolha entre Normal ou Zero no momento do pedido."
+  },
+  {
+    "id": 43,
+    "nome": "H2O Tradicional",
+    "preco": 7.50,
+    "categoria": "Refrigerantes"
+  },
+  {
+    "id": 44,
+    "nome": "H2O Limoneto",
+    "preco": 8.00,
+    "categoria": "Refrigerantes"
+  },
+  {
+    "id": 45,
+    "nome": "Água Mineral Sem Gás",
+    "preco": 3.00,
+    "categoria": "Refrigerantes"
+  },
+  {
+    "id": 46,
+    "nome": "Água Mineral Com Gás",
+    "preco": 4.50,
+    "categoria": "Refrigerantes"
+  },
+  {
+    "id": 47,
+    "nome": "Tônica",
+    "preco": 7.50,
+    "categoria": "Refrigerantes"
+  },
+  {
+    "id": 48,
+    "nome": "Red Bull Lata",
+    "preco": 15.00,
+    "categoria": "Refrigerantes"
+  },
+  {
+    "id": 49,
+    "nome": "Salgadinho Fofura",
+    "preco": 3.50,
+    "categoria": "Conveniencias"
+  },
+  {
+    "id": 50,
+    "nome": "Salgadinho Torcida",
+    "preco": 4.50,
+    "categoria": "Conveniencias"
+  },
+  {
+    "id": 51,
+    "nome": "Trident",
+    "preco": 3.50,
+    "categoria": "Conveniencias"
+  },
+  {
+    "id": 52,
+    "nome": "Halls",
+    "preco": 3.50,
+    "categoria": "Conveniencias"
+  },
+  {
+    "id": 53,
+    "nome": "Drink Especial da Casa (1 Unidade)",
+    "preco": 15.00,
+    "categoria": "Drinks Especiais",
+    "descricao": "Opções: AGI Tropical, AGI Power, AGI Green ou AGI Citrus. (Escolha o sabor no carrinho)",
+    "video": "videos/preparo_drinks.mp4",
+    "imagem": "images/drinks.jpg"
+  },
+  {
+    "id": 54,
+    "nome": "Promoção: 2 Drinks Especiais da Casa",
+    "preco": 25.00,
+    "categoria": "Drinks Especiais",
+    "descricao": "Leve 2 e economize! Escolha os sabores (AGI Tropical, Power, Green ou Citrus) nas observações.",
+    "video": "videos/preparo_drinks.mp4",
+    "imagem": "images/drinks.jpg"
   }
 ]
