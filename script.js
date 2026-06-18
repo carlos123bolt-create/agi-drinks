@@ -275,12 +275,7 @@ const rua = document.getElementById("end-rua").value;
 const numero = document.getElementById("end-numero").value;
 const bairro = document.getElementById("end-bairro").value;
 
-if (nomeCliente === "" || rua === "" || numero === "" || bairro === "") {
-    alert("Por favor, preencha todos os campos do seu endereço!");
-    return;
-}
-
-textoMsg += `Nome: ${nomeCliente}\nEndereço: ${rua}, ${numero} - ${bairro}\n`;
+if(tipoEntrega === 'entrega') {
         const rua = document.getElementById('end-rua').value;
         const comp = document.getElementById('end-complemento').value;
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
