@@ -148,9 +148,10 @@ function abrirMidiaModal(nomeDrink) {
     const player = document.getElementById('video-player');
     
     // Caminho relativo ao vídeo enviado no repositório do github
-    player.src = "public/manifest.json" ? "public/manifest.json" : ""; 
+   // player.src = "public/manifest.json" ? "public/manifest.json" : ""; 
     // Como demonstração prática, se você subir o vídeo na raiz com o nome 'preparar.mp4':
-    player.src = "preparar.mp4"; 
+    player.src = "preparo.mp4";
+    player.load();
     
     document.getElementById('midia-modal').classList.add('active');
     player.play().catch(() => {});
