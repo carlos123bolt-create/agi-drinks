@@ -25,22 +25,22 @@ function verificarHorarioFuncionamento() {
     const fimMinutos = 23 * 60;   // 23:00
 
     const bola = document.getElementById('status-bola');
-    const texto = document.getElementById('status-text');
+    const texto = document.getElementById('status-texto');
 
     // Terça-feira adega fechada
     if (diaSemana === 2) {
-        bola.className = "status-bola fechado";
-        texto.innerText = "Fechado no momento";
+        if (bola) bola.className = "status-bola fechado";
+        if (texto) texto.innerText = "Fechado no momento";
         return;
     }
 
     // Verifica se está dentro da janela de horário
     if (tempoAtualEmMinutos >= inicioMinutos && tempoAtualEmMinutos < fimMinutos) {
-        bola.className = "status-bola aberto";
-        texto.innerText = "Aberto - Faça seu Pedido";
+        if (bola) bola.className = "status-bola aberto";
+        if (texto) texto.innerText = "Aberto - Faça seu Pedido";
     } else {
-        bola.className = "status-bola fechado";
-        texto.innerText = "Fechado no momento";
+        if (bola) bola.className = "status-bola fechado";
+        if (texto) texto.innerText = "Fechado no momento";
     }
 }
 
@@ -57,6 +57,7 @@ function carregarProdutos() {
 
 function renderizarCatalogo() {
     const container = document.getElementById('categorias-container');
+    if (!container) return;
     container.innerHTML = "";
 
     for (const categoria in produtosDados) {
@@ -104,33 +105,40 @@ function adicionarAoCarrinho(nome, preco) {
 
 function atualizarInterfaceCarrinho() {
     const totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
-    document.getElementById('carrinho-quantidade').innerText = totalItens;
+    const campoQtde = document.getElementById('carrinho-quantidade');
+    if (campoQtde) campoQtde.innerText = totalItens;
 
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
-    document.getElementById('carrinho-total-barra').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+    const campoTotalBarra = document.getElementById('carrinho-total-barra');
+    if (campoTotalBarra) campoTotalBarra.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
 
     const barra = document.getElementById('barra-carrinho');
-    if (totalItens > 0) {
-        barra.classList.remove('hidden');
-    } else {
-        barra.classList.add('hidden');
-        fecharModalCarrinho();
+    if (barra) {
+        if (totalItens > 0) {
+            barra.classList.remove('hidden');
+        } else {
+            barra.classList.add('hidden');
+            fecharModalCarrinho();
+        }
     }
     
     atualizarValoresModal();
 }
 
 function abrirModalCarrinho() {
-    document.getElementById('modal-carrinho').classList.remove('hidden');
+    const modal = document.getElementById('modal-carrinho');
+    if (modal) modal.classList.remove('hidden');
     renderizarItensModal();
 }
 
 function fecharModalCarrinho() {
-    document.getElementById('modal-carrinho').classList.add('hidden');
+    const modal = document.getElementById('modal-carrinho');
+    if (modal) modal.classList.add('hidden');
 }
 
 function renderizarItensModal() {
     const container = document.getElementById('itens-carrinho');
+    if (!container) return;
     container.innerHTML = "";
 
     carrinho.forEach((item, index) => {
@@ -165,56 +173,66 @@ function alterarTipoEntrega(tipo) {
     const secaoEndereco = document.getElementById('secao-endereco');
     const txtFreteLinha = document.getElementById('txt-frete-linha');
 
-    if (tipo === 'entrega') {
-        secaoEndereco.classList.remove('hidden');
-        txtFreteLinha.style.display = 'block';
-    } else {
-        secaoEndereco.classList.add('hidden');
-        txtFreteLinha.style.display = 'none';
+    if (secaoEndereco && txtFreteLinha) {
+        if (tipo === 'entrega') {
+            secaoEndereco.classList.remove('hidden');
+            txtFreteLinha.style.display = 'block';
+        } else {
+            secaoEndereco.classList.add('hidden');
+            txtFreteLinha.style.display = 'none';
+        }
     }
     atualizarValoresModal();
 }
 
 function verificarTroco(opcao) {
     const secaoTroco = document.getElementById('secao-troco');
-    if (opcao === 'Dinheiro') {
-        secaoTroco.classList.remove('hidden');
-    } else {
-        secaoTroco.classList.add('hidden');
+    if (secaoTroco) {
+        if (opcao === 'Dinheiro') {
+            secaoTroco.classList.remove('hidden');
+        } else {
+            secaoTroco.classList.add('hidden');
+        }
     }
 }
 
 function atualizarValoresModal() {
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
-    document.getElementById('resumo-subtotal').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+    const campoSubtotal = document.getElementById('resumo-subtotal');
+    if (campoSubtotal) campoSubtotal.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
 
     const freteAtual = (tipoEntrega === 'entrega') ? TAXA_FRETE : 0.00;
-    document.getElementById('resumo-frete').innerText = `R$ ${freteAtual.toFixed(2).replace('.', ',')}`;
+    const campoFrete = document.getElementById('resumo-frete');
+    if (campoFrete) campoFrete.innerText = `R$ ${freteAtual.toFixed(2).replace('.', ',')}`;
 
     const totalGeral = subtotal + freteAtual;
-    document.getElementById('resumo-total-geral').innerText = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`;
+    const campoTotalGeral = document.getElementById('resumo-total-geral');
+    if (campoTotalGeral) campoTotalGeral.innerText = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`;
 
     const avisoMinimo = document.getElementById('aviso-minimo');
     const btnFinalizar = document.getElementById('btn-finalizar');
 
-    if (tipoEntrega === 'entrega' && subtotal < PEDIDO_MINIMO_ENTREGA) {
-        avisoMinimo.classList.remove('hidden');
-        btnFinalizar.disabled = true;
-        btnFinalizar.style.opacity = "0.5";
-    } else {
-        avisoMinimo.classList.add('hidden');
-        btnFinalizar.disabled = false;
-        btnFinalizar.style.opacity = "1";
+    if (avisoMinimo && btnFinalizar) {
+        if (tipoEntrega === 'entrega' && subtotal < PEDIDO_MINIMO_ENTREGA) {
+            avisoMinimo.classList.remove('hidden');
+            btnFinalizar.disabled = true;
+            btnFinalizar.style.opacity = "0.5";
+        } else {
+            avisoMinimo.classList.add('hidden');
+            btnFinalizar.disabled = false;
+            btnFinalizar.style.opacity = "1";
+        }
     }
 }
 
 // FUNÇÃO DE ENVIO COM VALIDAÇÃO DO NOME DO CLIENTE
 function enviarPedidoAoWhatsApp() {
-    const nomeCliente = document.getElementById('cliente-nome').value.trim();
+    const campoNome = document.getElementById('cliente-nome');
+    const nomeCliente = campoNome ? campoNome.value.trim() : "";
 
     if (nomeCliente === "") {
         alert("Por favor, preencha o seu Nome Completo antes de enviar o pedido!");
-        document.getElementById('cliente-nome').focus();
+        if (campoNome) campoNome.focus();
         return;
     }
 
@@ -238,10 +256,10 @@ function enviarPedidoAoWhatsApp() {
         mensagem += `*Frete:* R$ ${TAXA_FRETE.toFixed(2).replace('.', ',')}\n`;
         mensagem += `*Total Geral:* R$ ${(subtotal + TAXA_FRETE).toFixed(2).replace('.', ',')}\n\n`;
 
-        const rua = document.getElementById('end-rua').value.trim();
-        const num = document.getElementById('end-numero').value.trim();
-        const bairro = document.getElementById('end-bairro').value.trim();
-        const ref = document.getElementById('end-referencia').value.trim();
+        const rua = document.getElementById('end-rua') ? document.getElementById('end-rua').value.trim() : "";
+        const num = document.getElementById('end-numero') ? document.getElementById('end-numero').value.trim() : "";
+        const bairro = document.getElementById('end-bairro') ? document.getElementById('end-bairro').value.trim() : "";
+        const ref = document.getElementById('end-referencia') ? document.getElementById('end-referencia').value.trim() : "";
 
         if (!rua || !num || !bairro) {
             alert("Por favor, preencha os campos obrigatórios do endereço de entrega!");
@@ -257,11 +275,11 @@ function enviarPedidoAoWhatsApp() {
         mensagem += `📌 _O cliente irá retirar o pedido diretamente no balcão da adega._\n`;
     }
 
-    const formaPagto = document.getElementById('forma-pagamento').value;
+    const formaPagto = document.getElementById('forma-patamento') ? document.getElementById('forma-pagamento').value : "Pix";
     mensagem += `\n*💳 Forma de Pagamento:* ${formaPagto}`;
 
     if (formaPagto === 'Dinheiro') {
-        const troco = document.getElementById('valor-troco').value.trim();
+        const troco = document.getElementById('valor-troco') ? document.getElementById('valor-troco').value.trim() : "";
         if (troco) mensagem += ` (Troco para: R$ ${troco})`;
     }
 
