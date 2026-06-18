@@ -269,7 +269,7 @@ function enviarPedidoWhatsApp() {
     textoMsg += `-----------------------------------\n`;
     textoMsg += `*Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n`;
     
-    if// Este bloco deve substituir o antigo dentro da função de envio
+    if
 const nomeCliente = document.getElementById("cliente-nome").value;
 const rua = document.getElementById("end-rua").value;
 const numero = document.getElementById("end-numero").value;
