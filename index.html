@@ -11,7 +11,7 @@
 
     <header class="header-adega">
         <div class="logo-container">
-            <img src="public/logo.jpg" alt="AGI Drinks" class="logo-img" onerror="this.src='https://i.ibb.co/6wG8YpW/agi-logo-placeholder.jpg'">
+            <h1 style="color: #fff; margin: 0; font-size: 28px;">AGI <span style="color: #d4a437;">DRINKS</span> 🦁</h1>
             <div class="status-container">
                 <span id="status-bola" class="status-bola fechado"></span>
                 <span id="status-texto">Verificando horário...</span>
@@ -25,8 +25,7 @@
 
     <div id="barra-carrinho" class="barra-carrinho hidden" onclick="abrirModalCarrinho()">
         <div class="info-carrinho">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="carrinho-quantidade">0</span> itens
+            <i class="fas fa-shopping-cart"></i> <span id="carrinho-quantidade">0</span> itens
         </div>
         <div class="ver-carrinho-btn">
             Ver Carrinho <span id="carrinho-total-barra">R$ 0,00</span>
@@ -39,67 +38,50 @@
                 <h2>Seu Carrinho</h2>
                 <button class="close-btn" onclick="fecharModalCarrinho()">&times;</button>
             </div>
-            
             <div class="modal-body">
                 <div id="itens-carrinho"></div>
 
                 <div class="secao-checkout">
                     <h3><i class="fas fa-motorcycle"></i> Como deseja receber?</h3>
                     <div class="opcoes-entrega">
-                        <label class="radio-container">
-                            <input type="radio" name="tipo-entrega" value="entrega" checked onclick="alterarTipoEntrega('entrega')">
-                            <span class="checkmark"></span> Entrega em Casa
-                        </label>
-                        <label class="radio-container">
-                            <input type="radio" name="tipo-entrega" value="retirada" onclick="alterarTipoEntrega('retirada')">
-                            <span class="checkmark"></span> Retirar na Adega
-                        </label>
+                        <label><input type="radio" name="tipo-entrega" value="entrega" checked onclick="alterarTipoEntrega('entrega')"> Entrega em Casa</label>
+                        <label><input type="radio" name="tipo-entrega" value="retirada" onclick="alterarTipoEntrega('retirada')"> Retirar na Adega</label>
                     </div>
                 </div>
 
                 <div id="secao-endereco" class="secao-checkout">
-                    <h3><i class="fas fa-map-marker-alt"></i> Endereço de Entrega</h3>
-                    <div class="form-group">
-                        <input type="text" id="end-rua" placeholder="Rua / Avenida" class="input-text">
-                    </div>
-                    <div class="form-row">
-                        <input type="text" id="end-numero" placeholder="Número" class="input-text">
-                        <input type="text" id="end-bairro" placeholder="Bairro" class="input-text">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="end-referencia" placeholder="Ponto de Referência (Opcional)" class="input-text">
-                    </div>
+                    <h3><i class="fas fa-map-marker-alt"></i> Endereço</h3>
+                    <input type="text" id="end-rua" placeholder="Rua" class="input-text" style="width:100%; margin-bottom:5px; padding:8px;">
+                    <input type="text" id="end-numero" placeholder="Número" class="input-text" style="width:48%; padding:8px; display:inline-block;">
+                    <input type="text" id="end-bairro" placeholder="Bairro" class="input-text" style="width:48%; padding:8px; display:inline-block;">
                 </div>
 
                 <div class="secao-checkout">
-                    <div class="form-group" style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 15px;">
                         <label for="cliente-nome" style="display: block; margin-bottom: 5px; font-weight: bold;">Nome Completo:</label>
-                        <input type="text" id="cliente-nome" placeholder="Digite o seu nome e sobrenome" class="input-text" style="width: 100%;" required>
+                        <input type="text" id="cliente-nome" placeholder="Digite seu nome e sobrenome" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" required>
                     </div>
-
-                    <h3><i class="fas fa-credit-card"></i> Forma de Pagamento</h3>
-                    <select id="forma-pagamento" class="input-select" onchange="verificarTroco(this.value)">
+                    <h3><i class="fas fa-credit-card"></i> Pagamento</h3>
+                    <select id="forma-pagamento" class="input-select" style="width:100%; padding:8px;" onchange="verificarTroco(this.value)">
                         <option value="Pix">Pix</option>
                         <option value="Cartão de Crédito">Cartão de Crédito</option>
                         <option value="Cartão de Débito">Cartão de Débito</option>
                         <option value="Dinheiro">Dinheiro</option>
                     </select>
-
                     <div id="secao-troco" class="form-group hidden" style="margin-top: 10px;">
-                        <input type="text" id="valor-troco" placeholder="Precisa de troco para quanto?" class="input-text">
+                        <input type="text" id="valor-troco" placeholder="Troco para quanto?" class="input-text" style="width:100%; padding:8px;">
                     </div>
                 </div>
 
-                <div class="resumo-valores">
+                <div class="resumo-valores" style="background:#222; padding:15px; border-radius:8px; margin-top:15px;">
                     <p>Subtotal: <span id="resumo-subtotal">R$ 0,00</span></p>
                     <p id="txt-frete-linha">Frete: <span id="resumo-frete">R$ 5,00</span></p>
-                    <h4 class="total-final-texto">Total Geral: <span id="resumo-total-geral">R$ 5,00</span></h4>
-                    <p id="aviso-minimo" class="erro-mensagem hidden">⚠️ Pedido mínimo para entrega é de R$ 15,00</p>
+                    <h4 style="color:#d4a437; margin:5px 0;">Total Geral: <span id="resumo-total-geral">R$ 5,00</span></h4>
+                    <p id="aviso-minimo" class="erro-mensagem hidden" style="color:red; font-size:12px;">⚠️ Mínimo para entrega é R$ 15,00</p>
                 </div>
             </div>
-
-            <div class="modal-footer">
-                <button class="btn-enviar-whats" id="btn-finalizar" onclick="enviarPedidoAoWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar Pedido ao WhatsApp</button>
+            <div class="modal-footer" style="margin-top:15px;">
+                <button class="btn-enviar-whats" id="btn-finalizar" onclick="enviarPedidoAoWhatsApp()" style="background:#25d366; color:#fff; width:100%; padding:12px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;"><i class="fab fa-whatsapp"></i> Enviar Pedido ao WhatsApp</button>
             </div>
         </div>
     </div>
