@@ -199,7 +199,7 @@ function atualizarLogistica() {
     const campoAdega = document.getElementById('campo-endereco-adega');
     const linhaFrete = document.getElementById('txt-frete-linha');
 
-    if(tipo === 'entrega') {
+    if(tipo === 'delivery') {
         campoCliente.classList.remove('hidden');
         campoAdega.classList.add('hidden');
         linhaFrete.style.display = "block";
@@ -230,7 +230,7 @@ function calcularTotalFinal() {
     const avisoMinimo = document.getElementById('aviso-minimo');
     const btnFinalizar = document.getElementById('btn-finalizar');
 
-    if(tipoEntrega === 'entrega' && subtotal < 15.00 && carrinho.length > 0) {
+    if(tipoEntrega === 'delivery' && subtotal < 15.00 && carrinho.length > 0) {
         avisoMinimo.classList.remove('hidden');
         btnFinalizar.disabled = true;
         btnFinalizar.style.opacity = "0.5";
@@ -254,7 +254,7 @@ function enviarPedidoWhatsApp() {
     
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
     let frete = 0;
-    if(tipoEntrega === 'entrega') {
+    if(tipoEntrega === 'delivery') {
         frete = parseFloat(document.querySelector('input[name="taxa_frete"]:checked')?.value);
     }
     const totalGeral = subtotal + frete;
