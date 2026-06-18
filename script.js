@@ -272,8 +272,8 @@ function enviarPedidoWhatsApp() {
     textoMsg += `*Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n`;
     
     if(tipoEntrega === 'entrega') {
-        const rua = document.getElementById('end-rua').value;
-        const comp = document.getElementById('end-complemento').value;
+        const rua = document.getElementById('rua').value;
+        const comp = document.getElementById('complemento').value;
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
 
         if(!rua) {
