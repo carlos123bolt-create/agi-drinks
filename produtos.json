@@ -327,7 +327,7 @@
   "preco": "15,00",
   "categoria": "Drinks da Casa",
   "descricao": "Maracujá, energético e VODKA",
-  "video": "videos/preparo_drinks.mp4",
+  "video": "videos/preparo.mp4",
   "imagem": "images/bebidas.jpg"
 },
 {
@@ -336,7 +336,7 @@
   "preco": "15,00",
   "categoria": "Drinks da Casa",
   "descricao": "Cereja, energético e VODKA",
-  "video": "videos/preparo_drinks.mp4",
+  "video": "videos/preparo.mp4",
   "imagem": "images/bebidas.jpg"
 },
 {
@@ -345,7 +345,7 @@
   "preco": "15,00",
   "categoria": "Drinks da Casa",
   "descricao": "Maçã verde, energético e VODKA",
-  "video": "videos/preparo_drinks.mp4",
+  "video": "videos/preparo.mp4",
   "imagem": "images/bebidas.jpg"
 },
 {
@@ -354,7 +354,7 @@
   "preco": "15,00",
   "categoria": "Drinks da Casa",
   "descricao": "Limão, energético e VODKA",
-  "video": "videos/preparo_drinks.mp4",
+  "video": "videos/preparo.mp4",
   "imagem": "images/bebidas.jpg"
 },
   {
@@ -363,7 +363,7 @@
     "preco": 25.00,
     "categoria": "Drinks da Casa",
     "descricao": "Leve 2 e economize! Escolha os sabores (AGI Tropical, Power, Green ou Citrus) nas observações.",
-    "video": "videos/preparo_drinks.mp4",
+    "video": "videos/preparo.mp4",
     "imagem": "images/drinks.jpg"
   },
   {
