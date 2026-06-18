@@ -324,15 +324,16 @@
   {
   "id": 53,
   "nome": "Drinks da Casa - AGI Tropical",
-  "preco": "15,00",
+  "preco": 15.00,
   "categoria": "Drinks da Casa",
   "descricao": "Maracujá, energético e VODKA",
+  "video": "videos/preparo.mp4",
   "imagem": "images/bebidas.jpg"
 },
 {
   "id": 54,
   "nome": "Drinks da Casa - AGI Power",
-  "preco": "15,00",
+  "preco": 15.00,
   "categoria": "Drinks da Casa",
   "descricao": "Cereja, energético e VODKA",
   "video": "videos/preparo.mp4",
@@ -341,7 +342,7 @@
 {
   "id": 55,
   "nome": "Drinks da Casa - AGI Green",
-  "preco": "15,00",
+  "preco": 15.00,
   "categoria": "Drinks da Casa",
   "descricao": "Maçã verde, energético e VODKA",
   "video": "videos/preparo.mp4",
@@ -350,7 +351,7 @@
 {
   "id": 56,
   "nome": "Drinks da Casa - AGI Citrus",
-  "preco": "15,00",
+  "preco": 15.00,
   "categoria": "Drinks da Casa",
   "descricao": "Limão, energético e VODKA",
   "video": "videos/preparo.mp4",
