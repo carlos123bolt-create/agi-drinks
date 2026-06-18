@@ -254,7 +254,7 @@ function enviarPedidoWhatsApp() {
     
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
     let frete = 0;
-    if(tipoEntrega === 'delivery') {
+    if(tipoEntrega === 'entrega') {
         frete = parseFloat(document.querySelector('input[name="taxa_frete"]:checked')?.value);
     }
     const totalGeral = subtotal + frete;
@@ -271,7 +271,7 @@ function enviarPedidoWhatsApp() {
     textoMsg += `-----------------------------------\n`;
     textoMsg += `*Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n`;
     
-    if(tipoEntrega === 'delivery') {
+    if(tipoEntrega === 'entrega') {
         const rua = document.getElementById('end-rua').value;
         const comp = document.getElementById('end-complemento').value;
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
@@ -294,7 +294,7 @@ function enviarPedidoWhatsApp() {
 if (observacoes) textoMsg += "Observações: ${observacoes}\n";
     textoMsg += `*Forma de Pagamento:* 💳 ${formaPagamento}\n`;
 
-    if(tipoEntrega === 'delivery') {
+    if(tipoEntrega === 'entrega') {
         const rua = document.getElementById('end-rua').value;
         const comp = document.getElementById('end-complemento').value;
         
