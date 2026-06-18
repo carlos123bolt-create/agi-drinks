@@ -331,16 +331,16 @@
     "imagem": "images/drinks.jpg"
   },
   {
-    "id": 54,
-    "nome": "Promoção: 2 Drinks Especiais da Casa",
-    "preco": 25.00,
-    "categoria": "Drinks Especiais",
-    "descricao": "Leve 2 e economize! Escolha os sabores (AGI Tropical, Power, Green ou Citrus) nas observações.",
-    "video": "preparo.mp4",
-    "imagem": "images/drinks.jpg"
-  }
-],
-"Porções": [
+        "id": 54,
+        "nome": "Promoção: 2 Drinks Especiais da Casa",
+        "preco": 25.00,
+        "categoria": "Drinks Especiais",
+        "descricao": "Leve 2 e economize! Escolha os sabores (AGI Tropical, Power, Green ou Citrus) nas observações.",
+        "video": "preparo.mp4",
+        "imagem": "images/drinks.jpg"
+    }
+  ],
+  "Porções": [
     { "nome": "Calabresa", "preco": 30.00 },
     { "nome": "Batata", "preco": 25.00 },
     { "nome": "Batata com Cheddar/Bacon", "preco": 28.00 }
