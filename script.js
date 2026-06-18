@@ -1,6 +1,6 @@
 let produtosDados = [];
 let carrinho = [];
-const WHATSAPP_NUMERO = "5511954357092"; // <-- COLOQUE SEU TELEFONE COM DDD AQUI (Ex: 5511912345678)
+const WHATSAPP_NUMERO = "5511999999999"; // <-- COLOQUE SEU TELEFONE COM DDD AQUI (Ex: 5511912345678)
 
 window.addEventListener('DOMContentLoaded', () => {
     verificarHorarioFuncionamento();
@@ -269,13 +269,7 @@ function enviarPedidoWhatsApp() {
     textoMsg += `-----------------------------------\n`;
     textoMsg += `*Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n`;
     
-    if
-const nomeCliente = document.getElementById("cliente-nome").value;
-const rua = document.getElementById("end-rua").value;
-const numero = document.getElementById("end-numero").value;
-const bairro = document.getElementById("end-bairro").value;
-
-if(tipoEntrega === 'entrega') {
+    if(tipoEntrega === 'entrega') {
         const rua = document.getElementById('end-rua').value;
         const comp = document.getElementById('end-complemento').value;
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
