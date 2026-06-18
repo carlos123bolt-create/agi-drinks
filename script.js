@@ -1,6 +1,6 @@
 let produtosDados = [];
 let carrinho = [];
-const WHATSAPP_NUMERO = "5511999999999"; // <-- COLOQUE SEU TELEFONE COM DDD AQUI (Ex: 5511912345678)
+const WHATSAPP_NUMERO = "5511954357092"; // <-- COLOQUE SEU TELEFONE COM DDD AQUI (Ex: 5511912345678)
 
 window.addEventListener('DOMContentLoaded', () => {
     verificarHorarioFuncionamento();
