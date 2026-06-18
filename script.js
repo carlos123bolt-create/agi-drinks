@@ -313,6 +313,6 @@ if (observacoes) textoMsg += "Observações: ${observacoes}\n";
     textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n`;
 
     // Codifica para a URL do WhatsApp
-    const urlFinal = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)}`;
+    const urlFinal = [https://api.whatsapp.com/send?phone=$](https://api.whatsapp.com/send?phone=$){WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)};
     window.open(urlFinal, '_blank');
 }
