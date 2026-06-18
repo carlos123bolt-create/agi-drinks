@@ -88,7 +88,7 @@ function filtrarCategoria(cat) {
     if(cat === 'Todos') {
         renderizarProdutos(produtosDados);
     } else {
-        const filtrados = produtosDados.filter(p => p.categoria === cat);
+       const filtrados = produtosDados.filter(p => p.categoria.toLowerCase() === cat.toLowerCase());
         renderizarProdutos(filtrados);
     }
 }
