@@ -253,7 +253,7 @@ function enviarPedidoWhatsApp() {
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
     let frete = 0;
     if(tipoEntrega === 'entrega') {
-        frete = parseFloat(document.querySelector('input[name="taxa_frete"]:checked').value);
+        frete = parseFloat(document.querySelector('input[name="taxa_frete"]:checked')?.value);
     }
     const totalGeral = subtotal + frete;
 
