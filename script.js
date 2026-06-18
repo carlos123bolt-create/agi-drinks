@@ -60,7 +60,7 @@ function renderizarProdutos(lista) {
         
         // Verifica se possui o botão de mídia para o Drink
         let botaoMidia = "";
-        if (prod.categoria === "Drinks Especiais")
+        if(prod.categoria === "Drinks Especiais") {
             botaoMidia = `<button class="btn-midia-drink" onclick="abrirMidiaModal('${prod.nome}')"><i class="fas fa-play-circle"></i> Ver Preparo</button>`;
         }
 
