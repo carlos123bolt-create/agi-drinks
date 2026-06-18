@@ -321,14 +321,41 @@
     "preco": 3.50,
     "categoria": "Conveniencias"
   },
-  {
-    "id": 53,
-    "nome": "Drink Especial da Casa (1 Unidade)",
-    "preco": 15.00,
-    "categoria": "Drinks Especiais",
-    "descricao": "Opções: AGI Tropical, AGI Power, AGI Green ou AGI Citrus. (Escolha o sabor no carrinho)",
-    "video": "videos/preparo_drinks.mp4",
-    "imagem": "images/drinks.jpg"
+  "id": 53,
+  "nome": "Bebida Especial da Casa - AGI Tropical",
+  "preco": "15,00",
+  "categoria": "Bebidas especiais",
+  "descricao": "Maracujá, energético e VODKA",
+  "video": "videos/preparo_drinks.mp4",
+  "imagem": "images/bebidas.jpg"
+},
+{
+  "id": 58,
+  "nome": "Bebida Especial da Casa - AGI Power",
+  "preco": "15,00",
+  "categoria": "Bebidas especiais",
+  "descricao": "Cereja, energético e VODKA",
+  "video": "videos/preparo_drinks.mp4",
+  "imagem": "images/bebidas.jpg"
+},
+{
+  "id": 59,
+  "nome": "Bebida Especial da Casa - AGI Green",
+  "preco": "15,00",
+  "categoria": "Bebidas especiais",
+  "descricao": "Maçã verde, energético e VODKA",
+  "video": "videos/preparo_drinks.mp4",
+  "imagem": "images/bebidas.jpg"
+},
+{
+  "id": 60,
+  "nome": "Bebida Especial da Casa - AGI Citrus",
+  "preco": "15,00",
+  "categoria": "Bebidas especiais",
+  "descricao": "Limão, energético e VODKA",
+  "video": "videos/preparo_drinks.mp4",
+  "imagem": "images/bebidas.jpg"
+}
   },
   {
     "id": 54,
