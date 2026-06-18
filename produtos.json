@@ -338,5 +338,23 @@
     "descricao": "Leve 2 e economize! Escolha os sabores (AGI Tropical, Power, Green ou Citrus) nas observações.",
     "video": "videos/preparo_drinks.mp4",
     "imagem": "images/drinks.jpg"
-  }
+  },
+  {
+"id": 55,
+"nome": "Porção de Calabresa",
+"preco": 30.00,
+"categoria": "Porções"
+},
+{
+"id": 56,
+"nome": "Porção de Batata",
+"preco": 25.00,
+"categoria": "Porções"
+},
+{
+"id": 57,
+"nome": "Porção de Batata com Cheddar e Bacon",
+"preco": 28.00,
+"categoria": "Porções"
+}
 ]
