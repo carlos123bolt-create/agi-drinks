@@ -102,15 +102,19 @@
                         <a href="https://www.google.com/maps/search/?api=1&query=Rua+Margarida+Maria+Alves+357+Serraria+Diadema" target="_blank" class="btn-mapa"><i class="fas fa-map-marked-alt"></i> Abrir no Google Maps</a>
                     </div>
                 </div>
+<div class="secao-checkout">
+    <div style="margin-bottom: 15px;">
+        <label for="cliente-nome" style="display: block; margin-bottom: 5px; font-weight: bold;">Nome Completo:</label>
+        <input type="text" id="cliente-nome" placeholder="Digite seu nome e sobrenome" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
+    </div>
 
-                <div class="secao-checkout">
-                    <h3><i class="fas fa-credit-card"></i> Forma de Pagamento</h3>
-                    <select id="forma-pagamento" class="input-select">
-                        <option value="Pix">Pix</option>
-                        <option value="Cartão de Crédito">Cartão de Crédito</option>
-                        <option value="Cartão de Débito">Cartão de Débito</option>
-                    </select>
-                </div>
+    <h3><i class="fas fa-credit-card"></i> Forma de Pagamento</h3>
+    <select id="forma-pagamento" class="input-select">
+        <option value="Pix">Pix</option>
+        <option value="Cartão de Crédito">Cartão de Crédito</option>
+        <option value="Cartão de Débito">Cartão de Débito</option>
+    </select>
+</div>
 
                 <div class="resumo-valores">
                     <p>Subtotal: <span id="resumo-subtotal">R$ 0,00</span></p>
