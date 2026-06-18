@@ -247,7 +247,7 @@ function enviarPedidoWhatsApp() {
         return;
     }
 
-    const tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked').value;
+    const tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked')?.value;
     const formaPagamento = document.getElementById('forma-pagamento').value;
     
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
