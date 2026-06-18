@@ -249,6 +249,7 @@ function enviarPedidoWhatsApp() {
 
     const tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked')?.value;
     const formaPagamento = document.getElementById('forma-pagamento').value;
+    const observacoes = documento.obterElementoPorID('observacoes').valor;
     
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
     let frete = 0;
@@ -289,7 +290,7 @@ function enviarPedidoWhatsApp() {
         textoMsg += `*Modo:* 🏪 Retirada no Local\n`;
         textoMsg += `*Endereço Adega:* Rua Margarida Maria Alves, 357 - Serraria\n`;
     }
-
+if (observacoes) textoMsg += "Observações: ${observacoes}\n";
     textoMsg += `*Forma de Pagamento:* 💳 ${formaPagamento}\n`;
 
     if(tipoEntrega === 'delivery') {
