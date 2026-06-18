@@ -325,7 +325,7 @@
   "id": 53,
   "nome": "Bebida Especial da Casa - AGI Tropical",
   "preco": "15,00",
-  "categoria": "drinks da casa",
+  "categoria": "Drinks da Casa",
   "descricao": "Maracujá, energético e VODKA",
   "video": "videos/preparo_drinks.mp4",
   "imagem": "images/bebidas.jpg"
@@ -334,7 +334,7 @@
   "id": 58,
   "nome": "Bebida Especial da Casa - AGI Power",
   "preco": "15,00",
-  "categoria": "drinks da casa",
+  "categoria": "Drinks da Casa",
   "descricao": "Cereja, energético e VODKA",
   "video": "videos/preparo_drinks.mp4",
   "imagem": "images/bebidas.jpg"
@@ -343,7 +343,7 @@
   "id": 59,
   "nome": "Bebida Especial da Casa - AGI Green",
   "preco": "15,00",
-  "categoria": "drinks da casa",
+  "categoria": "Drinks da Casa",
   "descricao": "Maçã verde, energético e VODKA",
   "video": "videos/preparo_drinks.mp4",
   "imagem": "images/bebidas.jpg"
@@ -352,7 +352,7 @@
   "id": 60,
   "nome": "Bebida Especial da Casa - AGI Citrus",
   "preco": "15,00",
-  "categoria": "drinks da casa",
+  "categoria": "Drinks da Casa",
   "descricao": "Limão, energético e VODKA",
   "video": "videos/preparo_drinks.mp4",
   "imagem": "images/bebidas.jpg"
@@ -361,7 +361,7 @@
     "id": 54,
     "nome": "Promoção: 2 Drinks Especiais da Casa",
     "preco": 25.00,
-    "categoria": "drinks da casa",
+    "categoria": "Drinks da Casa",
     "descricao": "Leve 2 e economize! Escolha os sabores (AGI Tropical, Power, Green ou Citrus) nas observações.",
     "video": "videos/preparo_drinks.mp4",
     "imagem": "images/drinks.jpg"
