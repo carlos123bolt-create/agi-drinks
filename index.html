@@ -3,88 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGI Drinks | Adega Premium</title>
+    <title>AGI Drinks - Adega Online</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="header-adega">
-        <div class="logo-container">
-            <h1 style="color: #fff; margin: 0; font-size: 28px;">AGI <span style="color: #d4a437;">DRINKS</span> 🦁</h1>
-            <div class="status-container">
-                <span id="status-bola" class="status-bola fechado"></span>
-                <span id="status-texto">Verificando horário...</span>
+    <header>
+        <div class="header-container">
+            <div class="logo-text">AGI DRINKS</div>
+            
+            <div class="status-estabelecimento" id="status-loja">
+                <span class="status-bola" id="status-bola"></span>
+                <span id="status-texto">Verificando...</span>
             </div>
+            
+            <p class="horario-info"><i class="far fa-clock"></i> 16:00 às 23:00 (Terça Fechado)</p>
+            
+            <a href="https://instagram.com/agidrinks" target="_blank" class="insta-top"><i class="fab fa-instagram"></i> @agidrinks</a>
         </div>
     </header>
 
-    <main class="catalogo-container">
-        <div id="categorias-container"></div>
+    <nav class="categorias-nav">
+        <button class="nav-btn active" onclick="filtrarCategoria('Todos')">Todos</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Combos')">Combos</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Doses')">Doses</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Cervejas')">Cervejas</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Refrigerantes')">Bebidas/Refri</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Drinks Especiais')">Drinks da Casa</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Conveniencias')">Conveniência</button>
+    </nav>
+
+    <main class="menu-container">
+        <div id="vitrine-produtos" class="produtos-grid">
+            </div>
     </main>
 
-    <div id="barra-carrinho" class="barra-carrinho hidden" onclick="abrirModalCarrinho()">
+    <div class="carrinho-barra-fixa" id="barra-carrinho" onclick="abrirCheckoutModal()">
         <div class="info-carrinho">
-            <i class="fas fa-shopping-cart"></i> <span id="carrinho-quantidade">0</span> itens
+            <i class="fas fa-shopping-basket"></i>
+            <span id="carrinho-qtd">0 itens</span>
         </div>
-        <div class="ver-carrinho-btn">
-            Ver Carrinho <span id="carrinho-total-barra">R$ 0,00</span>
+        <div class="total-carrinho">
+            <span>Ver Carrinho</span>
+            <span id="carrinho-total-topo">R$ 0,00</span>
         </div>
     </div>
 
-    <div id="modal-carrinho" class="modal-overlay hidden">
+    <div class="modal-overlay" id="checkout-modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Seu Carrinho</h2>
-                <button class="close-btn" onclick="fecharModalCarrinho()">&times;</button>
+                <button class="close-btn" onclick="fecharCheckoutModal()">&times;</button>
             </div>
+            
             <div class="modal-body">
-                <div id="itens-carrinho"></div>
+                <div id="itens-carrinho-lista">
+                    </div>
+
+                <hr class="divisor">
 
                 <div class="secao-checkout">
-                    <h3><i class="fas fa-motorcycle"></i> Como deseja receber?</h3>
+                    <h3><i class="fas fa-truck"></i> Como deseja receber?</h3>
                     <div class="opcoes-entrega">
-                        <label><input type="radio" name="tipo-entrega" value="entrega" checked onclick="alterarTipoEntrega('entrega')"> Entrega em Casa</label>
-                        <label><input type="radio" name="tipo-entrega" value="retirada" onclick="alterarTipoEntrega('retirada')"> Retirar na Adega</label>
+                        <label class="radio-container">
+                            <input type="radio" name="tipo_entrega" value="entrega" checked onclick="atualizarLogistica()">
+                            <span class="checkmark"></span> Receber em Casa (Delivery)
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="tipo_entrega" value="retirada" onclick="atualizarLogistica()">
+                            <span class="checkmark"></span> Retirar na Adega
+                        </label>
                     </div>
                 </div>
 
-                <div id="secao-endereco" class="secao-checkout">
-                    <h3><i class="fas fa-map-marker-alt"></i> Endereço</h3>
-                    <input type="text" id="end-rua" placeholder="Rua" class="input-text" style="width:100%; margin-bottom:5px; padding:8px;">
-                    <input type="text" id="end-numero" placeholder="Número" class="input-text" style="width:48%; padding:8px; display:inline-block;">
-                    <input type="text" id="end-bairro" placeholder="Bairro" class="input-text" style="width:48%; padding:8px; display:inline-block;">
+                <div id="campo-endereco-cliente" class="secao-checkout">
+                    <h3><i class="fas fa-map-marker-alt"></i> Endereço de Entrega</h3>
+                    <input type="text" id="end-rua" placeholder="Rua, Número e Bairro" class="input-text">
+                    <input type="text" id="end-complemento" placeholder="Complemento / Ponto de Referência (Opcional)" class="input-text">
+                    
+                    <p class="Subtitulo-frete">Selecione a Região do Frete:</p>
+                    <div class="opcoes-frete">
+                        <label class="radio-container">
+                            <input type="radio" name="taxa_frete" value="5" checked onclick="calcularTotalFinal()">
+                            <span class="checkmark"></span> Diadema (R$ 5,00)
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="taxa_frete" value="8" onclick="calcularTotalFinal()">
+                            <span class="checkmark"></span> Outras Regiões (R$ 8,00)
+                        </label>
+                    </div>
+                </div>
+
+                <div id="campo-endereco-adega" class="secao-checkout hidden">
+                    <h3><i class="fas fa-store"></i> Nosso Endereço para Retirada</h3>
+                    <p class="endereco-adega-texto">Rua Margarida Maria Alves, 357 - Serraria, Diadema - SP</p>
+                    <div class="mapa-container">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Margarida+Maria+Alves+357+Serraria+Diadema" target="_blank" class="btn-mapa"><i class="fas fa-map-marked-alt"></i> Abrir no Google Maps</a>
+                    </div>
                 </div>
 
                 <div class="secao-checkout">
-                    <div style="margin-bottom: 15px;">
-                        <label for="cliente-nome" style="display: block; margin-bottom: 5px; font-weight: bold;">Nome Completo:</label>
-                        <input type="text" id="cliente-nome" placeholder="Digite seu nome e sobrenome" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" required>
-                    </div>
-                    <h3><i class="fas fa-credit-card"></i> Pagamento</h3>
-                    <select id="forma-pagamento" class="input-select" style="width:100%; padding:8px;" onchange="verificarTroco(this.value)">
+                    <h3><i class="fas fa-credit-card"></i> Forma de Pagamento</h3>
+                    <select id="forma-pagamento" class="input-select">
                         <option value="Pix">Pix</option>
                         <option value="Cartão de Crédito">Cartão de Crédito</option>
                         <option value="Cartão de Débito">Cartão de Débito</option>
-                        <option value="Dinheiro">Dinheiro</option>
                     </select>
-                    <div id="secao-troco" class="form-group hidden" style="margin-top: 10px;">
-                        <input type="text" id="valor-troco" placeholder="Troco para quanto?" class="input-text" style="width:100%; padding:8px;">
-                    </div>
                 </div>
 
-                <div class="resumo-valores" style="background:#222; padding:15px; border-radius:8px; margin-top:15px;">
+                <div class="resumo-valores">
                     <p>Subtotal: <span id="resumo-subtotal">R$ 0,00</span></p>
                     <p id="txt-frete-linha">Frete: <span id="resumo-frete">R$ 5,00</span></p>
-                    <h4 style="color:#d4a437; margin:5px 0;">Total Geral: <span id="resumo-total-geral">R$ 5,00</span></h4>
-                    <p id="aviso-minimo" class="erro-mensagem hidden" style="color:red; font-size:12px;">⚠️ Mínimo para entrega é R$ 15,00</p>
+                    <h4 class="total-final-texto">Total Geral: <span id="resumo-total-geral">R$ 5,00</span></h4>
+                    <p id="aviso-minimo" class="erro-mensagem hidden">⚠️ Pedido mínimo para entrega é de R$ 15,00</p>
                 </div>
             </div>
-            <div class="modal-footer" style="margin-top:15px;">
-                <button class="btn-enviar-whats" id="btn-finalizar" onclick="enviarPedidoAoWhatsApp()" style="background:#25d366; color:#fff; width:100%; padding:12px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;"><i class="fab fa-whatsapp"></i> Enviar Pedido ao WhatsApp</button>
+
+            <div class="modal-footer">
+                <button class="btn-enviar-whats" id="btn-finalizar" onclick="enviarPedidoWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar Pedido ao WhatsApp</button>
             </div>
         </div>
     </div>
 
+    <div class="modal-overlay" id="midia-modal">
+        <div class="modal-content video-modal-size">
+            <div class="modal-header">
+                <h2 id="midia-titulo">Preparo do Drink Especial</h2>
+                <button class="close-btn" onclick="fecharMidiaModal()">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <video id="video-player" controls class="video-preview-element" src=""></video>
+                <p class="legenda-video">Veja o capricho na montagem do nosso Drink Especial da Casa! 🍹</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>AGI DRINKS</h3>
+            <p>Rua Margarida Maria Alves, 357 - Serraria, Diadema - SP</p>
+            <p class="footer-horario">Segunda a Domingo: 16h às 23h | Terça: Fechado</p>
+            <div class="redes-sociais">
+                <a href="https://instagram.com/agidrinks" target="_blank"><i class="fab fa-instagram"></i> @agidrinks</a>
+            </div>
+            <p class="copyright">&copy; 2026 AGI Drinks. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
