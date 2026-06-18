@@ -5,7 +5,7 @@ let carrinho = [];
 let produtosDados = [];
 let tipoEntrega = "entrega"; // 'entrega' ou 'retirada'
 const TAXA_FRETE = 5.00;
-const PEDIDO_MINIMO_ENTREGA = 15.00;
+const PEDIMO_MINIMO_ENTREGA = 15.00;
 
 document.addEventListener("DOMContentLoaded", () => {
     verificarHorarioFuncionamento();
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarProdutos();
 });
 
-// Sistema Inteligente de Horário
+// Sistema Inteligente de Horário (CORRIGIDO)
 function verificarHorarioFuncionamento() {
     const agora = new Date();
     const diaSemana = agora.getDay(); // 0 = Domingo, 1 = Segunda, 2 = Terça...
@@ -55,6 +55,7 @@ function carregarProdutos() {
         .catch(err => console.error("Erro ao carregar os produtos do JSON:", err));
 }
 
+// Renderizar o catálogo corrigido e com suporte a mídia
 function renderizarCatalogo() {
     const container = document.getElementById('categorias-container');
     if (!container) return;
@@ -75,9 +76,29 @@ function renderizarCatalogo() {
         produtosDados[categoria].forEach(prod => {
             const card = document.createElement('div');
             card.className = 'produto-card';
+            
+            // Verifica se o produto tem imagem cadastrada no JSON, senão deixa sem mídia
+            let midiaHtml = "";
+            if (prod.imagem) {
+                midiaHtml = `
+                    <div class="drink-imagem-container">
+                        <img src="${prod.imagem}" class="drink-img" alt="${prod.nome}">
+                    </div>
+                `;
+            }
+            if (prod.video) {
+                midiaHtml += `
+                    <div class="drink-video-container" style="margin-bottom: 10px;">
+                        <video src="${prod.video}" controls width="100%" style="border-radius: 8px; border: 1px solid #d4a437;"></video>
+                    </div>
+                `;
+            }
+
             card.innerHTML = `
+                ${midiaHtml}
                 <div class="produto-detalhes">
                     <h3>${prod.nome}</h3>
+                    ${prod.descricao ? `<p class="produto-desc" style="font-size: 13px; color: #aaa; margin: 5px 0;">${prod.descricao}</p>` : ''}
                     <p class="produto-preco">R$ ${prod.preco.toFixed(2).replace('.', ',')}</p>
                 </div>
                 <button class="add-to-cart-btn" onclick="adicionarAoCarrinho('${prod.nome}', ${prod.preco})">
@@ -98,7 +119,7 @@ function adicionarAoCarrinho(nome, preco) {
     if (itemExistente) {
         itemExistente.quantidade += 1;
     } else {
-        carrinho.push({ nome, preco, quantidade: 1 });
+        carrinho.push({ nome, preco, Medical: false, quantidade: 1 });
     }
     atualizarInterfaceCarrinho();
 }
@@ -213,7 +234,7 @@ function atualizarValoresModal() {
     const btnFinalizar = document.getElementById('btn-finalizar');
 
     if (avisoMinimo && btnFinalizar) {
-        if (tipoEntrega === 'entrega' && subtotal < PEDIDO_MINIMO_ENTREGA) {
+        if (tipoEntrega === 'entrega' && subtotal < PEDIMO_MINIMO_ENTREGA) {
             avisoMinimo.classList.remove('hidden');
             btnFinalizar.disabled = true;
             btnFinalizar.style.opacity = "0.5";
@@ -225,7 +246,6 @@ function atualizarValoresModal() {
     }
 }
 
-// FUNÇÃO DE ENVIO COM VALIDAÇÃO DO NOME DO CLIENTE
 function enviarPedidoAoWhatsApp() {
     const campoNome = document.getElementById('cliente-nome');
     const nomeCliente = campoNome ? campoNome.value.trim() : "";
@@ -275,7 +295,7 @@ function enviarPedidoAoWhatsApp() {
         mensagem += `📌 _O cliente irá retirar o pedido diretamente no balcão da adega._\n`;
     }
 
-    const formaPagto = document.getElementById('forma-patamento') ? document.getElementById('forma-pagamento').value : "Pix";
+    const formaPagto = document.getElementById('forma-pagamento') ? document.getElementById('forma-pagamento').value : "Pix";
     mensagem += `\n*💳 Forma de Pagamento:* ${formaPagto}`;
 
     if (formaPagto === 'Dinheiro') {
