@@ -295,4 +295,3 @@ function enviarPedidoWhatsApp() {
     // Codifica para a URL do WhatsApp
     const urlFinal = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)}`;
     window.open(urlFinal, '_blank');
-}
