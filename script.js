@@ -292,7 +292,7 @@ function enviarPedidoWhatsApp() {
 
     textoMsg += `*Forma de Pagamento:* 💳 ${formaPagamento}\n`;
 
-    if(tipoEntrega === 'entrega') {
+    if(tipoEntrega === 'delivery') {
         const rua = document.getElementById('end-rua').value;
         const comp = document.getElementById('end-complemento').value;
         
