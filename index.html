@@ -3,65 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGI Drinks | Adega Premium</title>
+    <title>AGI Drinks - Adega Online</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="public/manifest.json">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
         <div class="header-container">
-            <h1 class="logo">AGI <span>DRINKS</span></h1>
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Busque seu rótulo favorito...">
-                <button id="search-btn"><i class="fas fa-search"></i></button>
+            <div class="logo-text">AGI DRINKS</div>
+            
+            <div class="status-estabelecimento" id="status-loja">
+                <span class="status-bola" id="status-bola"></span>
+                <span id="status-texto">Verificando...</span>
             </div>
-            <div class="cart-icon" onclick="toggleCart()">
-                <i class="fas fa-shopping-basket"></i>
-                <span id="cart-count">0</span>
-            </div>
+            
+            <p class="horario-info"><i class="far fa-clock"></i> 16:00 às 23:00 (Terça Fechado)</p>
+            
+            <a href="https://instagram.com/agidrinks" target="_blank" class="insta-top"><i class="fab fa-instagram"></i> @agidrinks</a>
         </div>
     </header>
 
-    <section class="banner">
-        <div class="banner-content">
-            <h2>Experiências Exclusivas em Cada Gole</h2>
-            <p>A melhor seleção de vinhos, destilados e cervejas artesanais.</p>
-        </div>
-    </section>
-
-    <nav class="categories">
-        <button class="cat-btn active" onclick="filterCategory('todos')">Todos</button>
-        <button class="cat-btn" onclick="filterCategory('vinhos')">Vinhos</button>
-        <button class="cat-btn" onclick="filterCategory('espumantes')">Espumantes</button>
-        <button class="cat-btn" onclick="filterCategory('destilados')">Destilados</button>
-        <button class="cat-btn" onclick="filterCategory('cervejas')">Cervejas</button>
+    <nav class="categorias-nav">
+        <button class="nav-btn active" onclick="filtrarCategoria('Todos')">Todos</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Combos')">Combos</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Doses')">Doses</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Cervejas')">Cervejas</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Refrigerantes')">Bebidas/Refri</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Drinks Especiais')">Drinks da Casa</button>
+        <button class="nav-btn" onclick="filtrarCategoria('Conveniencias')">Conveniência</button>
     </nav>
 
-    <main class="container">
-        <div class="products-grid" id="products-container">
+    <main class="menu-container">
+        <div id="vitrine-produtos" class="produtos-grid">
             </div>
     </main>
 
-    <div class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header">
-            <h3>Seu Carrinho</h3>
-            <span class="close-cart" onclick="toggleCart()">&times;</span>
+    <div class="carrinho-barra-fixa" id="barra-carrinho" onclick="abrirCheckoutModal()">
+        <div class="info-carrinho">
+            <i class="fas fa-shopping-basket"></i>
+            <span id="carrinho-qtd">0 itens</span>
         </div>
-        <div class="cart-items" id="cart-items">
-            </div>
-        <div class="cart-footer">
-            <div class="cart-total">Total: <span id="cart-total-val">R$ 0,00</span></div>
-            <button class="checkout-btn" onclick="checkoutWhatsApp()">Finalizar no WhatsApp <i class="fab fa-whatsapp"></i></button>
+        <div class="total-carrinho">
+            <span>Ver Carrinho</span>
+            <span id="carrinho-total-topo">R$ 0,00</span>
         </div>
     </div>
 
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Seu Carrinho</h2>
+                <button class="close-btn" onclick="fecharCheckoutModal()">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="itens-carrinho-lista">
+                    </div>
+
+                <hr class="divisor">
+
+                <div class="secao-checkout">
+                    <h3><i class="fas fa-truck"></i> Como deseja receber?</h3>
+                    <div class="opcoes-entrega">
+                        <label class="radio-container">
+                            <input type="radio" name="tipo_entrega" value="entrega" checked onclick="atualizarLogistica()">
+                            <span class="checkmark"></span> Receber em Casa (Delivery)
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="tipo_entrega" value="retirada" onclick="atualizarLogistica()">
+                            <span class="checkmark"></span> Retirar na Adega
+                        </label>
+                    </div>
+                </div>
+
+                <div id="campo-endereco-cliente" class="secao-checkout">
+                    <h3><i class="fas fa-map-marker-alt"></i> Endereço de Entrega</h3>
+                    <input type="text" id="end-rua" placeholder="Rua, Número e Bairro" class="input-text">
+                    <input type="text" id="end-complemento" placeholder="Complemento / Ponto de Referência (Opcional)" class="input-text">
+                    
+                    <p class="Subtitulo-frete">Selecione a Região do Frete:</p>
+                    <div class="opcoes-frete">
+                        <label class="radio-container">
+                            <input type="radio" name="taxa_frete" value="5" checked onclick="calcularTotalFinal()">
+                            <span class="checkmark"></span> Diadema (R$ 5,00)
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="taxa_frete" value="8" onclick="calcularTotalFinal()">
+                            <span class="checkmark"></span> Outras Regiões (R$ 8,00)
+                        </label>
+                    </div>
+                </div>
+
+                <div id="campo-endereco-adega" class="secao-checkout hidden">
+                    <h3><i class="fas fa-store"></i> Nosso Endereço para Retirada</h3>
+                    <p class="endereco-adega-texto">Rua Margarida Maria Alves, 357 - Serraria, Diadema - SP</p>
+                    <div class="mapa-container">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Margarida+Maria+Alves+357+Serraria+Diadema" target="_blank" class="btn-mapa"><i class="fas fa-map-marked-alt"></i> Abrir no Google Maps</a>
+                    </div>
+                </div>
+
+                <div class="secao-checkout">
+                    <h3><i class="fas fa-credit-card"></i> Forma de Pagamento</h3>
+                    <select id="forma-pagamento" class="input-select">
+                        <option value="Pix">Pix</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                        <option value="Cartão de Débito">Cartão de Débito</option>
+                    </select>
+                </div>
+
+                <div class="resumo-valores">
+                    <p>Subtotal: <span id="resumo-subtotal">R$ 0,00</span></p>
+                    <p id="txt-frete-linha">Frete: <span id="resumo-frete">R$ 5,00</span></p>
+                    <h4 class="total-final-texto">Total Geral: <span id="resumo-total-geral">R$ 5,00</span></h4>
+                    <p id="aviso-minimo" class="erro-mensagem hidden">⚠️ Pedido mínimo para entrega é de R$ 15,00</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-enviar-whats" id="btn-finalizar" onclick="enviarPedidoWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar Pedido ao WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="midia-modal">
+        <div class="modal-content video-modal-size">
+            <div class="modal-header">
+                <h2 id="midia-titulo">Preparo do Drink Especial</h2>
+                <button class="close-btn" onclick="fecharMidiaModal()">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <video id="video-player" controls class="video-preview-element" src=""></video>
+                <p class="legenda-video">Veja o capricho na montagem do nosso Drink Especial da Casa! 🍹</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>AGI DRINKS</h3>
+            <p>Rua Margarida Maria Alves, 357 - Serraria, Diadema - SP</p>
+            <p class="footer-horario">Segunda a Domingo: 16h às 23h | Terça: Fechado</p>
+            <div class="redes-sociais">
+                <a href="https://instagram.com/agidrinks" target="_blank"><i class="fab fa-instagram"></i> @agidrinks</a>
+            </div>
+            <p class="copyright">&copy; 2026 AGI Drinks. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
-    <script> 
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('public/service-worker.js');
-        }
-    </script>
 </body>
 </html>
