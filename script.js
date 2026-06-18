@@ -249,7 +249,7 @@ function enviarPedidoWhatsApp() {
 
     const tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked')?.value;
     const formaPagamento = document.getElementById('forma-pagamento').value;
-    const observacoes = documento.obterElementoPorID('observacoes').value;
+    const observacoes = document.getElementById('observacoes').value;
     
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
     let frete = 0;
