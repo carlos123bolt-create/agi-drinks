@@ -1,50 +1,14 @@
 {
   "Combos": [
-    {
-      "nome": "Combo Beefeater + 4 Red Bull",
-      "preco": 190.00,
-      "descricao": "Garrafa de Gin Beefeater acompanhada de 4 energéticos Red Bull."
-    },
-    {
-      "nome": "Combo Eternity + Bally 2L",
-      "preco": 45.00,
-      "descricao": "Garrafa de Eternity acompanhada de energético Bally de 2 Litros."
-    },
-    {
-      "nome": "Combo Ballantines + 4 Red Bull",
-      "preco": 170.00,
-      "descricao": "Garrafa de Whisky Ballantines acompanhada de 4 energéticos Red Bull."
-    },
-    {
-      "nome": "Combo Cavalo Branco + 4 Red Bull",
-      "preco": 150.00,
-      "descricao": "Garrafa de Whisky Cavalo Branco acompanhada de 4 energéticos Red Bull."
-    },
-    {
-      "nome": "Combo Jack Daniels Tradicional + 4 Red Bull",
-      "preco": 270.00,
-      "descricao": "Garrafa de Whisky Jack Daniels Tradicional acompanhada de 4 energéticos Red Bull."
-    },
-    {
-      "nome": "Combo Jack Daniels Maçã Verde + 4 Red Bull",
-      "preco": 290.00,
-      "descricao": "Garrafa de Whisky Jack Daniels Apple acompanhada de 4 energéticos Red Bull."
-    },
-    {
-      "nome": "Combo Absolut + 4 Red Bull",
-      "preco": 180.00,
-      "descricao": "Garrafa de Vodka Absolut acompanhada de 4 energéticos Red Bull."
-    },
-    {
-      "nome": "Combo Red Label + 4 Red Bull",
-      "preco": 160.00,
-      "descricao": "Garrafa de Whisky Red Label acompanhada de 4 energéticos Red Bull."
-    },
-    {
-      "nome": "Combo Black Label + 4 Red Bull",
-      "preco": 300.00,
-      "descricao": "Garrafa de Whisky Black Label acompanhada de 4 energéticos Red Bull."
-    }
+    { "nome": "Combo Beefeater + 4 Red Bull", "preco": 190.00 },
+    { "nome": "Combo Eternity + Bally 2L", "preco": 45.00 },
+    { "nome": "Combo Ballantines + 4 Red Bull", "preco": 170.00 },
+    { "nome": "Combo Cavalo Branco + 4 Red Bull", "preco": 150.00 },
+    { "nome": "Combo Jack Daniels Tradicional + 4 Red Bull", "preco": 270.00 },
+    { "nome": "Combo Jack Daniels Maçã Verde + 4 Red Bull", "preco": 290.00 },
+    { "nome": "Combo Absolut + 4 Red Bull", "preco": 180.00 },
+    { "nome": "Combo Red Label + 4 Red Bull", "preco": 160.00 },
+    { "nome": "Combo Black Label + 4 Red Bull", "preco": 300.00 }
   ],
   "Doses": [
     { "nome": "Passport c/ Energético Bally", "preco": 20.00 },
@@ -53,75 +17,31 @@
     { "nome": "Red Label c/ Red Bull", "preco": 35.00 },
     { "nome": "Jack Daniel's c/ Energético Bally", "preco": 30.00 },
     { "nome": "Jack Daniel's c/ Red Bull", "preco": 35.00 },
-    { "nome": "Jack Daniel's de Maçã Verde c/ Energético Bally", "preco": 35.00 },
-    { "nome": "Jack Daniel's de Maçã Verde c/ Red Bull", "preco": 40.00 },
     { "nome": "White Horse c/ Energético Bally", "preco": 20.00 },
     { "nome": "White Horse c/ Red Bull", "preco": 30.00 },
     { "nome": "Smirnoff c/ Energético Bally", "preco": 20.00 },
     { "nome": "Smirnoff c/ Red Bull", "preco": 35.00 },
-    { "nome": "Buchanan's c/ Energético Bally", "preco": 20.00 },
-    { "nome": "Buchanan's c/ Red Bull", "preco": 35.00 },
     { "nome": "Black Label c/ Energético Bally", "preco": 35.00 },
-    { "nome": "Black Label c/ Red Bull", "preco": 45.00 },
-    { "nome": "Jim Beam c/ Energético Bally", "preco": 20.00 },
-    { "nome": "Jim Beam c/ Red Bull", "preco": 30.00 },
-    { "nome": "Ballantines c/ Energético Bally", "preco": 28.00 },
-    { "nome": "Ballantines c/ Red Bull", "preco": 35.00 },
-    { "nome": "Malibu c/ Energético Vibe", "preco": 20.00 },
-    { "nome": "Malibu c/ Red Bull", "preco": 30.00 },
-    { "nome": "Licor Doce de Leite (Bem Casado)", "preco": 20.00 },
-    { "nome": "Licor Doce de Leite Annubis Premium", "preco": 25.00 }
+    { "nome": "Black Label c/ Red Bull", "preco": 45.00 }
   ],
   "Cervejas": [
     { "nome": "Itaipava Lata", "preco": 4.00 },
     { "nome": "Brahma Lata", "preco": 5.00 },
     { "nome": "Skol Lata", "preco": 5.00 },
-    { "nome": "Original Lata", "preco": 5.00 },
     { "nome": "Heineken Lata", "preco": 8.00 },
-    { "nome": "Heineken Long Neck", "preco": 12.00 },
-    { "nome": "Heineken Long Neck Zero", "preco": 12.00 },
-    { "nome": "Corona", "preco": 12.00 }
+    { "nome": "Heineken Long Neck", "preco": 12.00 }
   ],
   "Refrigerantes": [
-    { "nome": "Coca-Cola / Pepsi / Guaraná Lata", "preco": 6.00, "descricao": "Escolha normal ou zero no WhatsApp." },
+    { "nome": "Coca-Cola Lata", "preco": 6.00 },
     { "nome": "H2O Tradicional", "preco": 7.50 },
-    { "nome": "H2O Limoneto", "preco": 8.00 },
     { "nome": "Água Mineral Sem Gás", "preco": 3.00 },
-    { "nome": "Água Mineral Com Gás", "preco": 4.50 },
-    { "nome": "Tônica", "preco": 7.50 },
     { "nome": "Red Bull Lata", "preco": 15.00 }
   ],
-  "Conveniencias": [
-    { "nome": "Salgadinho Fofura", "preco": 3.50 },
-    { "nome": "Salgadinho Torcida", "preco": 4.50 },
-    { "nome": "Trident", "preco": 3.50 },
-    { "nome": "Halls", "preco": 3.50 }
-  ],
   "Drinks Especiais": [
-    {
-      "nome": "Drink Especial (AGI Tropical)",
-      "preco": 15.00,
-      "descricao": "Sabor Maracujá natural com energético e vodka em camadas premium."
-    },
-    {
-      "nome": "Drink Especial (AGI Power)",
-      "preco": 15.00,
-      "descricao": "Sabor Intenso com energético e vodka em camadas premium."
-    },
-    {
-      "nome": "Drink Especial (AGI Green)",
-      "preco": 15.00,
-      "descricao": "Sabor Cítrico refrescante com energético e vodka em camadas premium."
-    },
-    {
-      "nome": "Drink Especial (AGI Citrus)",
-      "preco": 15.00,
-      "descricao": "Sabor Vibrante com energético e vodka em camadas premium."
-    },
-    {
-      "nome": "Combo 2x Drinks Especiais",
-      "preco": 25.00,
-      "descricao": "Leve 2 drinks da casa por preço promocional! (Indique os sabores no WhatsApp)."
-    }
+    { "nome": "Drink Especial (AGI Tropical)", "preco": 15.00, "descricao": "Maracujá da fruta, energético e vodka premium." },
+    { "nome": "Drink Especial (AGI Power)", "preco": 15.00, "descricao": "Sabor Intenso com energético e vodka premium." },
+    { "nome": "Drink Especial (AGI Green)", "preco": 15.00, "descricao": "Sabor Cítrico refrescante com energético e vodka premium." },
+    { "nome": "Drink Especial (AGI Citrus)", "preco": 15.00, "descricao": "Sabor Vibrante com energético e vodka premium." },
+    { "nome": "Combo Promo: 2x Drinks Especiais", "preco": 25.00, "descricao": "Leve 2 por preço promocional! (Escreva os sabores no WhatsApp)" }
   ]
 }
