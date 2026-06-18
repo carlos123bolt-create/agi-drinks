@@ -331,7 +331,7 @@
   "imagem": "images/bebidas.jpg"
 },
 {
-  "id": 58,
+  "id": 54,
   "nome": "Drinks da Casa - AGI Power",
   "preco": "15,00",
   "categoria": "Drinks da Casa",
@@ -340,7 +340,7 @@
   "imagem": "images/bebidas.jpg"
 },
 {
-  "id": 59,
+  "id": 55,
   "nome": "Drinks da Casa - AGI Green",
   "preco": "15,00",
   "categoria": "Drinks da Casa",
@@ -349,7 +349,7 @@
   "imagem": "images/bebidas.jpg"
 },
 {
-  "id": 60,
+  "id": 56,
   "nome": "Drinks da Casa - AGI Citrus",
   "preco": "15,00",
   "categoria": "Drinks da Casa",
@@ -358,7 +358,7 @@
   "imagem": "images/bebidas.jpg"
 },
   {
-    "id": 54,
+    "id": 57,
     "nome": "Promoção: 2 Drinks da Casa",
     "preco": 25.00,
     "categoria": "Drinks da Casa",
@@ -367,19 +367,19 @@
     "imagem": "images/drinks.jpg"
   },
   {
-"id": 55,
+"id": 58,
 "nome": "Porção de Calabresa",
 "preco": 30.00,
 "categoria": "Porções"
 },
 {
-"id": 56,
+"id": 59,
 "nome": "Porção de Batata",
 "preco": 25.00,
 "categoria": "Porções"
 },
 {
-"id": 57,
+"id": 60,
 "nome": "Porção de Batata com Cheddar e Bacon",
 "preco": 28.00,
 "categoria": "Porções"
