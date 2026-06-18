@@ -292,7 +292,25 @@ function enviarPedidoWhatsApp() {
 
     textoMsg += `*Forma de Pagamento:* 💳 ${formaPagamento}\n`;
 
+    if(tipoEntrega === 'entrega') {
+        const rua = document.getElementById('end-rua').value;
+        const comp = document.getElementById('end-complemento').value;
+        
+        if(!rua) {
+            alert("Por favor, preencha o seu endereço para a entrega!");
+            return;
+        }
+        
+        textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
+        textoMsg += `*Endereço:* ${rua}\n`;
+        if(comp) textoMsg += `*Complemento:* ${comp}\n`;
+    } else {
+        textoMsg += `*Modo:* 🏪 Retirar na Adega\n`;
+    }
+
+    textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n`;
+
     // Codifica para a URL do WhatsApp
     const urlFinal = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)}`;
     window.open(urlFinal, '_blank');
-    }
+}
