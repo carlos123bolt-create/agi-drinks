@@ -283,6 +283,8 @@ function enviarPedidoWhatsApp() {
         textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
         textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
         textoMsg += `*Endereço:* ${rua}\n`;
+        textoMsg += `*Numero:* ${end-numero}\n`;
+        textoMsg += `*Bairro:* ${end-bairro}\n`;
     } else {
         textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
         textoMsg += `*Modo:* 🏪 Retirada no Local\n`;
