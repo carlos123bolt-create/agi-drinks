@@ -271,6 +271,7 @@ function enviarPedidoWhatsApp() {
     textoMsg += `*Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n`;
     
     if(tipoEntrega === 'entrega') {
+        const cliente = document.getElementById('cliente-nome').value;
         const rua = document.getElementById('rua').value;
         const numero = document.getElementById('numero').value;
         const bairro = document.getElementById('bairro').value;
@@ -284,6 +285,7 @@ function enviarPedidoWhatsApp() {
         textoMsg += `*Frete (${regiao}):* R$ ${frete.toFixed(2).replace('.',',')}\n`;
         textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
         textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
+        textoMsg += `*Nome:* ${cliente-nome}\n`;
         textoMsg += `*Endereço:* ${rua}\n`;
         textoMsg += `*Numero:* ${numero}\n`;
         textoMsg += `*Bairro:* ${bairro}\n`;
