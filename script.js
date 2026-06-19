@@ -282,7 +282,6 @@ function enviarPedidoWhatsApp() {
         textoMsg += `*Frete (${regiao}):* R$ ${frete.toFixed(2).replace('.',',')}\n`;
         textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
         textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
-        textoMsg += `*Nome:* {cliente-nome}\n ;
         textoMsg += `*Endereço:* ${rua}\n`;
     } else {
         textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
