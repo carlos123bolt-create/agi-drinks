@@ -298,6 +298,7 @@ function enviarPedidoWhatsApp() {
     }
 
     textoMsg += `*Forma de Pagamento:* 💳 ${formaPagamento}\n`;
+    textoMsg += `*Observações:* ${observacoes}\n`;
 
     // Codifica para a URL do WhatsApp
     const urlFinal = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)}`;
