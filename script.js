@@ -248,31 +248,31 @@ function enviarPedidoWhatsApp() {
         return;
     }
 
-    const tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked')?.value;
+    const tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked').value;
     const formaPagamento = document.getElementById('forma-pagamento').value;
-    const observacoes = document.getElementById('observacoes').value;
     
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
     let frete = 0;
     if(tipoEntrega === 'entrega') {
-        frete = parseFloat(document.querySelector('input[name="taxa_frete"]:checked')?.value);
+        frete = parseFloat(document.querySelector('input[name="taxa_frete"]:checked').value);
     }
     const totalGeral = subtotal + frete;
 
     // Montando a mensagem de texto
-    let textoMsg = *Novo Pedido - AGI DRINKS* 🍹\n;
-    textoMsg += -----------------------------------\n\n;
+    let textoMsg = `*Novo Pedido - AGI DRINKS* 🍹\n`;
+    textoMsg += `-----------------------------------\n\n`;
     
     carrinho.forEach(item => {
-        textoMsg += *${item.quantidade}x* ${item.nome}\n;
-        textoMsg += `   Preço: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.',',')}\n\n`;
+        textoMsg += `*${item.quantidade}x* ${item.nome}\n`;
+        textoMsg += `   _Preço: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.',',')}_\n\n`;
     });
 
-    textoMsg += -----------------------------------\n;
-    textoMsg += *Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n;
+    textoMsg += `-----------------------------------\n`;
+    textoMsg += `*Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n`;
     
     if(tipoEntrega === 'entrega') {
-        const rua = document.getElementById('rua').value;
+        const rua = document.getElementById('end-rua').value;
+        const comp = document.getElementById('end-complemento').value;
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
 
         if(!rua) {
@@ -280,35 +280,20 @@ function enviarPedidoWhatsApp() {
             return;
         }
 
-        textoMsg += *Frete (${regiao}):* R$ ${frete.toFixed(2).replace('.',',')}\n;
-        textoMsg += *Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n;
-        textoMsg += *Modo:* 🚀 Entrega em Casa\n;
-        textoMsg += *Endereço:* ${rua}\n;
+        textoMsg += `*Frete (${regiao}):* R$ ${frete.toFixed(2).replace('.',',')}\n`;
+        textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
+        textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
+        textoMsg += `*Endereço:* ${rua}\n`;
+        if(comp) textoMsg += `*Complemento:* ${comp}\n`;
     } else {
-        textoMsg += *Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n;
-        textoMsg += *Modo:* 🏪 Retirada no Local\n;
-        textoMsg += *Endereço Adega:* Rua Margarida Maria Alves, 357 - Serraria\n;
-    }
-if (observacoes) textoMsg += "Observações: ${observacoes}\n";
-    textoMsg += *Forma de Pagamento:* 💳 ${formaPagamento}\n;
-
-    if(tipoEntrega === 'entrega') {
-        const rua = document.getElementById('rua').value;
-        
-        if(!rua) {
-            alert("Por favor, preencha o seu endereço para a entrega!");
-            return;
-        }
-        
-        textoMsg += *Modo:* 🚀 Entrega em Casa\n;
-        textoMsg += *Endereço:* ${rua}\n;
-    } else {
-        textoMsg += *Modo:* 🏪 Retirar na Adega\n;
+        textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
+        textoMsg += `*Modo:* 🏪 Retirada no Local\n`;
+        textoMsg += `*Endereço Adega:* Rua Margarida Maria Alves, 357 - Serraria\n`;
     }
 
-    textoMsg += *Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n;
+    textoMsg += `*Forma de Pagamento:* 💳 ${formaPagamento}\n`;
 
     // Codifica para a URL do WhatsApp
-    const urlFinal = https://api.whatsapp.com/send?phone=${WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)};
+    const urlFinal = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)}`;
     window.open(urlFinal, '_blank');
 }
