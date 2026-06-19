@@ -293,7 +293,7 @@ if (observacoes) textoMsg += "Observações: ${observacoes}\n";
     textoMsg += `*Forma de Pagamento:* 💳 ${formaPagamento}\n`;
 
     if(tipoEntrega === 'entrega') {
-        const rua = document.getElementById('end-rua').value;
+        const rua = document.getElementById('rua').value;
         const comp = document.getElementById('end-complemento').value;
         
         if(!rua) {
