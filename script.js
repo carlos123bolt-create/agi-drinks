@@ -248,6 +248,8 @@ function enviarPedidoWhatsApp() {
         return;
     }
 
+    // Captura dos novos campos e dados do formulário
+    const nomeCliente = document.getElementById('nome-cliente')?.value || "Não informado";
     const tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked')?.value;
     const formaPagamento = document.getElementById('forma-pagamento').value;
     const observacoes = document.getElementById('observacoes').value;
@@ -255,60 +257,60 @@ function enviarPedidoWhatsApp() {
     const subtotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
     let frete = 0;
     if(tipoEntrega === 'entrega') {
-        frete = parseFloat(document.querySelector('input[name="taxa_frete"]:checked')?.value);
+        frete = parseFloat(document.querySelector('input[name="taxa_frete"]:checked')?.value || 0);
     }
     const totalGeral = subtotal + frete;
 
-    // Montando a mensagem de texto
-    let textoMsg = `*Novo Pedido - AGI DRINKS* 🍹\n`;
-    textoMsg += `-----------------------------------\n\n`;
+    // Cabeçalho da Mensagem
+    let textoMsg = *Novo Pedido - AGI DRINKS* 🍹\n;
+    textoMsg += -----------------------------------\n\n;
     
-    carrinho.forEach(item => {
-        textoMsg += `*${item.quantidade}x* ${item.nome}\n`;
-        textoMsg += `   _Preço: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.',',')}_\n\n`;
-    });
+    // Dados do Cliente
+    textoMsg += *Cliente:* ${nomeCliente}\n\n;
 
-    textoMsg += `-----------------------------------\n`;
-    textoMsg += `*Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n`;
-    
+    // Itens do Pedido
+    textoMsg += *--- ITENS DO PEDIDO ---*\n;
+    carrinho.forEach(item => {
+        textoMsg += *${item.quantidade}x* ${item.nome}\n;
+        textoMsg += `   Preço: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.',',')}\n\n`;
+    });
+    textoMsg += -----------------------------------\n;
+
+    // Configuração de Entrega / Retirada
     if(tipoEntrega === 'entrega') {
         const rua = document.getElementById('rua').value;
+        const numero = document.getElementById('numero')?.value || '';
+        const bairro = document.getElementById('bairro')?.value || '';
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
 
-        if(!rua) {
-            alert("Por favor, preencha o seu endereço para a entrega!");
+        if(!rua || !numero || !bairro) {
+            alert("Por favor, preencha todos os campos do endereço (Rua, Número e Bairro) para a entrega!");
             return;
         }
 
-        textoMsg += `*Frete (${regiao}):* R$ ${frete.toFixed(2).replace('.',',')}\n`;
-        textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
-        textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
-        textoMsg += `*Endereço:* ${rua}\n`;
+        textoMsg += *Modo:* 🚀 Entrega em Casa\n;
+        textoMsg += *Endereço:* ${rua}, nº ${numero} - ${bairro}\n;
+        textoMsg += *Frete (${regiao}):* R$ ${frete.toFixed(2).replace('.',',')}\n\n;
     } else {
-        textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
-        textoMsg += `*Modo:* 🏪 Retirada no Local\n`;
-        textoMsg += `*Endereço Adega:* Rua Margarida Maria Alves, 357 - Serraria\n`;
+        textoMsg += *Modo:* 🏪 Retirada no Local\n;
+        textoMsg += *Endereço Adega:* Rua Margarida Maria Alves, 357 - Serraria\n\n;
     }
-if (observacoes) textoMsg += "Observações: ${observacoes}\n";
-    textoMsg += `*Forma de Pagamento:* 💳 ${formaPagamento}\n`;
 
+    // Observações (Se houver)
+    if (observacoes.trim() !== "") {
+        textoMsg += *Observações:* ${observacoes}\n\n;
+    }
+
+    // Fechamento de Valores e Pagamento
+    textoMsg += -----------------------------------\n;
+    textoMsg += *Subtotal:* R$ ${subtotal.toFixed(2).replace('.',',')}\n;
     if(tipoEntrega === 'entrega') {
-        const rua = document.getElementById('rua').value;
-        
-        if(!rua) {
-            alert("Por favor, preencha o seu endereço para a entrega!");
-            return;
-        }
-        
-        textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
-        textoMsg += `*Endereço:* ${rua}\n`;
-    } else {
-        textoMsg += `*Modo:* 🏪 Retirar na Adega\n`;
+        textoMsg += *Frete:* R$ ${frete.toFixed(2).replace('.',',')}\n;
     }
+    textoMsg += *Total Geral:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n;
+    textoMsg += *Forma de Pagamento:* 💳 ${formaPagamento}\n;
 
-    textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n`;
-
-    // Codifica para a URL do WhatsApp
-    const urlFinal = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)}`;
+    // Codifica para a URL do WhatsApp e envia
+    const urlFinal = https://api.whatsapp.com/send?phone=${WHATSAPP_NUMERO}&text=${encodeURIComponent(textoMsg)};
     window.open(urlFinal, '_blank');
 }
