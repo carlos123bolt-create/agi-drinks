@@ -275,6 +275,7 @@ function enviarPedidoWhatsApp() {
         const rua = document.getElementById('rua').value;
         const numero = document.getElementById('numero').value;
         const bairro = document.getElementById('bairro').value;
+        const observacoes = document.getElementById('observacoes').value;
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
 
         if(!rua) {
@@ -289,6 +290,7 @@ function enviarPedidoWhatsApp() {
         textoMsg += `*Endereço:* ${rua}\n`;
         textoMsg += `*Numero:* ${numero}\n`;
         textoMsg += `*Bairro:* ${bairro}\n`;
+        textoMsg += `*Observações:* ${observacoes}\n`;
     } else {
         textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
         textoMsg += `*Modo:* 🏪 Retirada no Local\n`;
