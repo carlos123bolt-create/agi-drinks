@@ -272,6 +272,8 @@ function enviarPedidoWhatsApp() {
     
     if(tipoEntrega === 'entrega') {
         const rua = document.getElementById('rua').value;
+        const numero = document.getElementById('end-numero').value;
+        const bairro = document.getElementById('end-bairro').value;
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
 
         if(!rua) {
@@ -283,6 +285,8 @@ function enviarPedidoWhatsApp() {
         textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
         textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
         textoMsg += `*Endereço:* ${rua}\n`;
+        textoMsg += `*Numero:* ${end-numero}\n`;
+        textoMsg += `*Bairro:* ${end-bairro}\n`;
     } else {
         textoMsg += `*Total:* R$ ${totalGeral.toFixed(2).replace('.',',')}\n\n`;
         textoMsg += `*Modo:* 🏪 Retirada no Local\n`;
