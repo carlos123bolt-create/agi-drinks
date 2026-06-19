@@ -272,8 +272,8 @@ function enviarPedidoWhatsApp() {
     
     if(tipoEntrega === 'entrega') {
         const rua = document.getElementById('rua').value;
-        const numero = document.getElementById('end-numero').value;
-        const bairro = document.getElementById('end-bairro').value;
+        const numero = document.getElementById('numero').value;
+        const bairro = document.getElementById('bairro').value;
         const regiao = frete === 5 ? "Diadema" : "Outra Região";
 
         if(!rua) {
