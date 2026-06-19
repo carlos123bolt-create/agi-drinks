@@ -249,7 +249,7 @@ function enviarPedidoWhatsApp() {
     }
 
     // Captura dos novos campos e dados do formulário
-    const nomeCliente = document.getElementById('nome-cliente')?.value || "Não informado";
+    const nomeCliente = document.getElementById('cliente-nome')?.value || "Não informado";
     const tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked')?.value;
     const formaPagamento = document.getElementById('forma-pagamento').value;
     const observacoes = document.getElementById('observacoes').value;
