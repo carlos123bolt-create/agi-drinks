@@ -302,7 +302,6 @@ if (observacoes) textoMsg += "Observações: ${observacoes}\n";
         
         textoMsg += `*Modo:* 🚀 Entrega em Casa\n`;
         textoMsg += `*Endereço:* ${rua}\n`;
-        if(comp) textoMsg += `*Complemento:* ${comp}\n`;
     } else {
         textoMsg += `*Modo:* 🏪 Retirar na Adega\n`;
     }
