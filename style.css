@@ -460,3 +460,7 @@ footer {
     color: #444;
     margin-top: 20px;
 }
+.whatsapp-top {
+    font-weight: bold;
+    text-decoration: none;
+}
