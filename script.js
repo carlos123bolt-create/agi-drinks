@@ -294,7 +294,6 @@ if (observacoes) textoMsg += "Observações: ${observacoes}\n";
 
     if(tipoEntrega === 'entrega') {
         const rua = document.getElementById('rua').value;
-        const comp = document.getElementById('end-complemento').value;
         
         if(!rua) {
             alert("Por favor, preencha o seu endereço para a entrega!");
